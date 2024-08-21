@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donor Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="loginForm" class="form-container">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <button onclick="showRegisterForm()">Register</button>
+    </div>
+
+    <!-- Register Form -->
+    <div id="registerForm" class="form-container" style="display: none;">
+        <h2>Register</h2>
+        <input type="text" id="registerUsername" placeholder="Username">
+        <input type="password" id="registerPassword" placeholder="Password">
+        <select id="userType">
+            <option value="donor">Donor</option>
+            <option value="patient">Patient</option>
+        </select>
+        <input type="text" id="bloodType" placeholder="Blood Type">
+        <input type="text" id="phoneNumber" placeholder="Phone Number">
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="location" placeholder="Location">
+        <div id="availabilitySection">
+            <input type="text" id="available" placeholder="Availability">
+        </div>
+        <div id="diagnosisSection" style="display: none;">
+            <input type="text" id="diagnosis" placeholder="Diagnosis">
+        </div>
+        <button onclick="register()">Register</button>
+    </div>
+
+    <!-- Donor Panel -->
+<div id="donorPanel" class="panel" style="display: none;">
+    <h2>Donor Panel</h2>
+    <p id="donorName"></p>
+    <input type="text" id="donorAvailability" placeholder="Update Availability">
+    <button onclick="updateAvailability()">Update Availability</button>
+    <button onclick="logout()">Logout</button>
+    <button onclick="switchToPatient()">Switch to Patient</button>
+    <button onclick="showDonorSearch()">Find Donors</button> <!-- New Button -->
+</div>
+
+
+    <!-- Patient Panel -->
+<div id="patientPanel" class="panel" style="display: none;">
+    <h2>Patient Panel</h2>
+    <p id="patientName"></p>
+    <input type="text" id="patientDiagnosis" placeholder="Diagnosis">
+    <button onclick="saveDiagnosis()">Save Diagnosis</button>
+    <button onclick="logout()">Logout</button>
+    <button onclick="switchToDonor()">Switch to Donor</button>
+    <button onclick="showDonorSearch()">Find Donors</button> <!-- New Button -->
+</div>
+
+
+  <!-- Admin Panel -->
+<div id="adminPanel" class="panel" style="display: none;">
+    <h2>Admin Panel</h2>
+    
+    <!-- Add New Donor Form -->
+    <div id="addDonorForm">
+        <h3>Add New Donor</h3>
+        <input type="text" id="newDonorUsername" placeholder="Username">
+        <input type="password" id="newDonorPassword" placeholder="Password">
+        <input type="text" id="newDonorBloodType" placeholder="Blood Type">
+        <input type="text" id="newDonorPhoneNumber" placeholder="Phone Number">
+        <input type="email" id="newDonorEmail" placeholder="Email">
+        <input type="text" id="newDonorLocation" placeholder="Location">
+        <input type="text" id="newDonorAvailability" placeholder="Availability">
+        <button onclick="addNewDonor()">Add Donor</button>
+    </div>
+    
+    <!-- Page Customization -->
+    <div id="pageCustomization">
+        <h3>Customize Page</h3>
+        <input type="color" id="backgroundColorPicker" placeholder="Background Color">
+        <input type="text" id="headerColor" placeholder="Header Color (Hex)">
+        <button onclick="customizePage()">Apply Customizations</button>
+    </div>
+    
+    <!-- Donor List -->
+    <ul id="adminDonorList"></ul>
+    <button onclick="logout()">Logout</button>
+</div>
+
+
+    <!-- Donor Search -->
+    <div id="donorSearch" class="panel" style="display: none;">
+        <h2>Find Donors</h2>
+        <input type="text" id="searchBloodType" placeholder="Blood Type">
+        <input type="text" id="searchAvailability" placeholder="Availability">
+        <button onclick="findDonor()">Search</button>
+        <ul id="donorList"></ul>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
